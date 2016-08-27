@@ -1,0 +1,6 @@
+framework module Pods_ZMWJoke {
+  umbrella header "Pods-ZMWJoke-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7AFFC564F89F5197F3200E38 /* Pods_ZMWJoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581B1A93B2DEF48CB5DAFC66 /* Pods_ZMWJoke.framework */; };
 		B289F7DC1D716EAB00A3C52A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F7DB1D716EAB00A3C52A /* AppDelegate.swift */; };
 		B289F7DE1D716EAB00A3C52A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F7DD1D716EAB00A3C52A /* ViewController.swift */; };
-		B289F7E11D716EAB00A3C52A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B289F7DF1D716EAB00A3C52A /* Main.storyboard */; };
 		B289F7E31D716EAB00A3C52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B289F7E21D716EAB00A3C52A /* Assets.xcassets */; };
-		B289F7E61D716EAB00A3C52A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B289F7E41D716EAB00A3C52A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08D70A492D2F28796D3FA820 /* Pods-ZMWJoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZMWJoke.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZMWJoke/Pods-ZMWJoke.release.xcconfig"; sourceTree = "<group>"; };
+		581B1A93B2DEF48CB5DAFC66 /* Pods_ZMWJoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZMWJoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		834DF9566F18E5EACBFB7F32 /* Pods-ZMWJoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZMWJoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZMWJoke/Pods-ZMWJoke.debug.xcconfig"; sourceTree = "<group>"; };
 		B289F7D81D716EAB00A3C52A /* ZMWJoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZMWJoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B289F7DB1D716EAB00A3C52A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B289F7DD1D716EAB00A3C52A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B289F7E01D716EAB00A3C52A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B289F7E21D716EAB00A3C52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B289F7E51D716EAB00A3C52A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B289F7E71D716EAB00A3C52A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -29,17 +29,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AFFC564F89F5197F3200E38 /* Pods_ZMWJoke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41079B9806B30CA642A009C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				834DF9566F18E5EACBFB7F32 /* Pods-ZMWJoke.debug.xcconfig */,
+				08D70A492D2F28796D3FA820 /* Pods-ZMWJoke.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6AC8CC4A6237FF2A429223C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				581B1A93B2DEF48CB5DAFC66 /* Pods_ZMWJoke.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B289F7CF1D716EAB00A3C52A = {
 			isa = PBXGroup;
 			children = (
 				B289F7DA1D716EAB00A3C52A /* ZMWJoke */,
 				B289F7D91D716EAB00A3C52A /* Products */,
+				41079B9806B30CA642A009C3 /* Pods */,
+				6AC8CC4A6237FF2A429223C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,9 +76,7 @@
 			children = (
 				B289F7DB1D716EAB00A3C52A /* AppDelegate.swift */,
 				B289F7DD1D716EAB00A3C52A /* ViewController.swift */,
-				B289F7DF1D716EAB00A3C52A /* Main.storyboard */,
 				B289F7E21D716EAB00A3C52A /* Assets.xcassets */,
-				B289F7E41D716EAB00A3C52A /* LaunchScreen.storyboard */,
 				B289F7E71D716EAB00A3C52A /* Info.plist */,
 			);
 			path = ZMWJoke;
@@ -71,9 +89,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B289F7EA1D716EAB00A3C52A /* Build configuration list for PBXNativeTarget "ZMWJoke" */;
 			buildPhases = (
+				D6E3E5DFFE9B96766250245D /* [CP] Check Pods Manifest.lock */,
 				B289F7D41D716EAB00A3C52A /* Sources */,
 				B289F7D51D716EAB00A3C52A /* Frameworks */,
 				B289F7D61D716EAB00A3C52A /* Resources */,
+				104341F56FF728018E041955 /* [CP] Embed Pods Frameworks */,
+				3AFE2B5E505EBB1F533C6B07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +118,7 @@
 					B289F7D71D716EAB00A3C52A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 72D439SU53;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,13 +146,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B289F7E61D716EAB00A3C52A /* LaunchScreen.storyboard in Resources */,
 				B289F7E31D716EAB00A3C52A /* Assets.xcassets in Resources */,
-				B289F7E11D716EAB00A3C52A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		104341F56FF728018E041955 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZMWJoke/Pods-ZMWJoke-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AFE2B5E505EBB1F533C6B07 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZMWJoke/Pods-ZMWJoke-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6E3E5DFFE9B96766250245D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B289F7D41D716EAB00A3C52A /* Sources */ = {
@@ -143,25 +211,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B289F7DF1D716EAB00A3C52A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B289F7E01D716EAB00A3C52A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B289F7E41D716EAB00A3C52A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B289F7E51D716EAB00A3C52A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B289F7E81D716EAB00A3C52A /* Debug */ = {
@@ -204,7 +253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -247,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -257,10 +306,15 @@
 		};
 		B289F7EB1D716EAB00A3C52A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 834DF9566F18E5EACBFB7F32 /* Pods-ZMWJoke.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 72D439SU53;
 				INFOPLIST_FILE = ZMWJoke/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZMWJoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,10 +324,15 @@
 		};
 		B289F7EC1D716EAB00A3C52A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08D70A492D2F28796D3FA820 /* Pods-ZMWJoke.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 72D439SU53;
 				INFOPLIST_FILE = ZMWJoke/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZMWJoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +359,7 @@
 				B289F7EC1D716EAB00A3C52A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
