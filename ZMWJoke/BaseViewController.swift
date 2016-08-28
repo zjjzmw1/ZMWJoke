@@ -12,8 +12,11 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        // 设置导航栏颜色
+        let naviBgImage = UIImage.imageWithColor(color: UIColor.white, size: CGSize.init(width: kScreenWidth, height: kNavBarHeight))
+        navigationController?.navigationBar.setBackgroundImage(naviBgImage, for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+    
         // 设置统一的背景颜色
         self.view.backgroundColor = UIColor.white
     
