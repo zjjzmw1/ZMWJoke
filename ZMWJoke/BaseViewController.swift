@@ -14,7 +14,8 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-
+        // 设置统一的背景颜色
+        self.view.backgroundColor = UIColor.white
     
     }
 
