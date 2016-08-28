@@ -222,17 +222,16 @@ public class XHTabBar:UITabBarController {
      */
     private func setupTabbarLine()
     {
-        self.tabBar.shadowImage = UIImage.init()
-        self.tabBar.backgroundImage = UIImage.init()
-        /* 暂时不需要那根线
+        //self.tabBar.shadowImage = UIImage.init()
+        //self.tabBar.backgroundImage = UIImage.init()
         self.tabBar.shadowImage = UIImage.init()
         self.tabBar.backgroundImage = UIImage.init()
         //let line = UILabel(frame: CGRect.init(x: 0, y: 0, width: MWIDTH, height: 0.5))
         //line.backgroundColor = UIColor.lightGray
-        let line = UILabel(frame: CGRect.init(x: 0, y: 0, width: MWIDTH, height: 0.0))
-        line.backgroundColor = UIColor.clear
+        let line = UILabel(frame: CGRect.init(x: 0, y: 0, width: MWIDTH, height: 0.5))
+        line.backgroundColor = UIColor.lightGray
+        line.alpha = 0.5
         cusTabbar.addSubview(line)
-        */
     }
     
     //MARK: - Action
