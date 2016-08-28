@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KDInteractiveNavigationController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ZMWJoke.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,7 +22,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>78CEE074EB38FEC9479F9EE4FEAF468E</key>
+		<key>0561928EC4BD64F22F762FE0759AB365</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>185D681DCE12CD1F8FC86480BCF2F242</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -51,7 +51,9 @@ class Tool {
         aButton .setTitle(titleString, for: UIControlState.normal)
         aButton .setTitleColor(textColor, for: UIControlState.normal)
         aButton.titleLabel?.font = font
-        aButton .setBackgroundImage(bgImage, for: UIControlState.normal)
+        if bgImage != nil {
+            aButton .setBackgroundImage(bgImage, for: UIControlState.normal)
+        }
         
         return aButton
     }

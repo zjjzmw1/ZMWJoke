@@ -14,6 +14,8 @@ pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch =
 #pod 'HanekeSwift', '~> 0.10.1'
 # log
 #pod 'Log', '~> 0.5'
+pod 'KDInteractiveNavigationController', '~> 0.1.2'                 # 导航栏
+
 end 
 
 post_install do |installer|

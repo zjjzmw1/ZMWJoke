@@ -1,8 +1,10 @@
 PODS:
   - Alamofire (4.0.0-beta.1)
+  - KDInteractiveNavigationController (0.1.2)
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift3`)
+  - KDInteractiveNavigationController (~> 0.1.2)
 
 EXTERNAL SOURCES:
   Alamofire:
@@ -16,7 +18,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 698bf56c9e48d3248168e4a3a90588ac2e23836a
+  KDInteractiveNavigationController: c719bdf18062213315890c4648d37156a621b520
 
-PODFILE CHECKSUM: 6d26f2c40034e7240df45ea351e16372e6fb3e5d
+PODFILE CHECKSUM: 52f0cfecc6474a4d6b9ea3d91859ed55eb276f0a
 
 COCOAPODS: 1.0.1

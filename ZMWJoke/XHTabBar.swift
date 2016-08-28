@@ -7,6 +7,7 @@
 //  代码地址:https://github.com/CoderZhuXH/XHTabBarSwift
 
 import UIKit
+import KDInteractiveNavigationController        // 自定义导航栏
 
 /**
  *  RGBA颜色
@@ -158,7 +159,9 @@ public class XHTabBar:UITabBarController {
                 return
             }
             let vc = vcCls.init()
-            let nav = UINavigationController(rootViewController:vc)
+            //let nav = UINavigationController(rootViewController:vc)
+            // 自定义导航栏
+            let nav = KDInteractiveNavigationController(rootViewController: vc)
             navArray.append(nav)
         }
         
@@ -219,15 +222,17 @@ public class XHTabBar:UITabBarController {
      */
     private func setupTabbarLine()
     {
-        guard tabBarHeight > 49 else
-        {
-            return;
-        }
         self.tabBar.shadowImage = UIImage.init()
         self.tabBar.backgroundImage = UIImage.init()
-        let line = UILabel(frame: CGRect.init(x: 0, y: 0, width: MWIDTH, height: 0.5))
-        line.backgroundColor = UIColor.lightGray
+        /* 暂时不需要那根线
+        self.tabBar.shadowImage = UIImage.init()
+        self.tabBar.backgroundImage = UIImage.init()
+        //let line = UILabel(frame: CGRect.init(x: 0, y: 0, width: MWIDTH, height: 0.5))
+        //line.backgroundColor = UIColor.lightGray
+        let line = UILabel(frame: CGRect.init(x: 0, y: 0, width: MWIDTH, height: 0.0))
+        line.backgroundColor = UIColor.clear
         cusTabbar.addSubview(line)
+        */
     }
     
     //MARK: - Action
