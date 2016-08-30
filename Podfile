@@ -15,7 +15,8 @@ pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch =
 # log
 #pod 'Log', '~> 0.5'
 pod 'KDInteractiveNavigationController', '~> 0.1.2'                 # 导航栏
-pod 'StatusBarNotificationCenter', '~> 1.1.3'                       # 导航栏通知UI
+# 暂时别删。删除了再下载就出问题了。（自己修改支持3.0的）暂时也不用了
+pod 'StatusBarNotificationCenter', '~> 1.1.3'                       # statusBar导航栏通知UI
 
 end 
 
