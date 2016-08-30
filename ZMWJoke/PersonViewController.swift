@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PersonViewController: BaseViewController {
 
@@ -20,9 +21,56 @@ class PersonViewController: BaseViewController {
     }
 
     func pushAction() -> Void {
+        /*
         let vc = LoginViewController()
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
+        */
+        let parameters = [ "foo": "bar","baz": ["a", 1],"qux": ["x": 1,"y": 2,"z": 3]] as [String : Any]
+        
+        Alamofire.request("https://httpbin.org/post", withMethod: .post, parameters: parameters, encoding: ParameterEncoding.json, headers: nil).responseJSON { (response) in
+            print("jsonRequest:\(response.result)")
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
+        
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
