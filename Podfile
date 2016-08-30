@@ -15,6 +15,7 @@ pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch =
 # log
 #pod 'Log', '~> 0.5'
 pod 'KDInteractiveNavigationController', '~> 0.1.2'                 # 导航栏
+pod 'StatusBarNotificationCenter', '~> 1.1.3'                       # 导航栏通知UI
 
 end 
 
