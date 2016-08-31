@@ -33,4 +33,15 @@ class NetworkTool: NSObject {
         }
     }
  */
+    
+    
+    class func baseRequestAction(method: HTTPMethod, parameters:NSDictionary, completion:@escaping (_ isSuccessed:Bool,_ code:Int?,_ jsonValue:AnyObject?) -> ()) {
+
+        Alamofire.request("https://httpbin.org/post", withMethod: .post, parameters: parameters as? [String : Any], encoding: ParameterEncoding.json, headers: nil).responseJSON { (response) in
+            
+            completion(response.result.isSuccess, response.response?.statusCode, response.result.value as AnyObject?)
+        }
+ 
+    }
+    
 }
