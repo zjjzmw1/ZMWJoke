@@ -31,6 +31,7 @@
 		B289F7DC1D716EAB00A3C52A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F7DB1D716EAB00A3C52A /* AppDelegate.swift */; };
 		B289F7E31D716EAB00A3C52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B289F7E21D716EAB00A3C52A /* Assets.xcassets */; };
 		FF56DC701D77B96300F8CFAC /* JokeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56DC6F1D77B96300F8CFAC /* JokeRequestManager.swift */; };
+		FFB2DE0B1D7801FD003D0E70 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB2DE0A1D7801FD003D0E70 /* TextCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		B289F7E21D716EAB00A3C52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B289F7E71D716EAB00A3C52A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF56DC6F1D77B96300F8CFAC /* JokeRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeRequestManager.swift; sourceTree = "<group>"; };
+		FFB2DE0A1D7801FD003D0E70 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B25B364D1D71D77A009D5584 /* TextViewController.swift */,
+				FFB2DE0A1D7801FD003D0E70 /* TextCell.swift */,
 			);
 			name = Text;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				B25B367A1D727EA2009D5584 /* PictureViewController.swift in Sources */,
 				B25B36671D71DD48009D5584 /* NSDate+Extension.swift in Sources */,
 				B25B36831D7282AB009D5584 /* LoginViewController.swift in Sources */,
+				FFB2DE0B1D7801FD003D0E70 /* TextCell.swift in Sources */,
 				B25B366E1D71DD48009D5584 /* UIStoryboard+Extension.swift in Sources */,
 				B25B36641D71DD48009D5584 /* GlobalDefine.swift in Sources */,
 				B25B36501D71D78F009D5584 /* XHTabBar.swift in Sources */,

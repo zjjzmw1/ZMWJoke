@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Tool {
+public class Tool {
     
     /**
      封装的UILabel 初始化
@@ -21,7 +21,7 @@ class Tool {
      
      - returns: UILabel
      */
-    class func initALabel(frame:CGRect,textString:String,font:UIFont,textColor:UIColor) -> UILabel {
+    public class func initALabel(frame:CGRect,textString:String,font:UIFont,textColor:UIColor) -> UILabel {
         let aLabel = UILabel()
         aLabel.frame = frame
         aLabel.backgroundColor = UIColor.clear
@@ -44,7 +44,7 @@ class Tool {
      
      - returns: UIButton
      */
-    class func initAButton(frame:CGRect ,titleString:String, font:UIFont, textColor:UIColor, bgImage:UIImage) -> UIButton {
+    public class func initAButton(frame:CGRect ,titleString:String, font:UIFont, textColor:UIColor, bgImage:UIImage) -> UIButton {
         let aButton = UIButton()
         aButton.frame = frame
         aButton.backgroundColor = UIColor.clear
