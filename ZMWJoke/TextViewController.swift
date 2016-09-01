@@ -7,29 +7,27 @@
 //
 
 import UIKit
+import Alamofire
 
 class TextViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "文字"
-
+        // 请求文字数据
+        self.requestContent()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func requestContent() {
+        
+        let dict : NSDictionary = ["page":1, "pageSize": 20]
+        JokeRequestManager.contentRequestAction(parameters: dict) { (isSuccess, code, result) in
+            print("isSuccess====\(isSuccess),code===\(code),result===\(result)")
+        }
     }
-    */
-
 }
