@@ -15,7 +15,8 @@ class BaseViewController: UIViewController {
         // 设置导航栏颜色
         let naviBgImage = UIImage.imageWithColor(color: UIColor.white, size: CGSize.init(width: kScreenWidth, height: kNavBarHeight))
         navigationController?.navigationBar.setBackgroundImage(naviBgImage, for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        // 添加这行就可以实现导航栏下面的横线隐藏了。
+        //navigationController?.navigationBar.shadowImage = UIImage()
     
         // 设置统一的背景颜色
         self.view.backgroundColor = UIColor.white

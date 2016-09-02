@@ -42,5 +42,19 @@ class TextCell: UITableViewCell {
             self.buttonClickBlock(indexP,collectionButton)
         }
     }
+    // 赋值方法
+    func drawData(textModel: TextModel) {
+        contentLabel.text = textModel.content
+        contentLabel.numberOfLines = 0
+        contentLabel .sizeToFit()
+    }
+    
+    func heightForCell(textModel: TextModel) -> CGFloat {
+        self.layoutIfNeeded()
+        contentLabel.text = textModel.content
+        contentLabel.numberOfLines = 0
+        contentLabel .sizeToFit()
+        return contentLabel.bottom() + 10
+    }
     
 }
