@@ -87,11 +87,14 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 自定义cell
-        var cell:TextCell!
-        cell = tableView.dequeueReusableCell(withIdentifier: "TextCellID") as! TextCell
+        var cell:TextCell?
+        cell = tableView.dequeueReusableCell(withIdentifier: "TextCellID", for: indexPath) as? TextCell
+        if cell == nil {
+            cell = TextCell(style: .default, reuseIdentifier: "TextCellID")
+        }
         // 收藏按钮
-        cell.indexP = indexPath
-        cell.collectionButton.isHidden = true
+        cell?.indexP = indexPath
+        cell?.collectionButton.isHidden = true
         /*
         cell.buttonClickBlock = {
             (ind,btn) -> () in
@@ -101,12 +104,10 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
          */
         // 赋值方法
         let textModel : TextModel = self.arr.object(at: indexPath.row) as! TextModel
-        cell.drawData(textModel: textModel)
+        cell?.drawData(textModel: textModel)
         
         return cell!
-        
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
