@@ -30,14 +30,14 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         // Class 注册
         tableView.register(TextCell.self, forCellReuseIdentifier: "TextCellID")
         
-        // 请求文字数据
-        self.requestContent()
-
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        // 请求文字数据 - 暂时放这
+        self.requestContent()
+
     }
     
     func requestContent() {

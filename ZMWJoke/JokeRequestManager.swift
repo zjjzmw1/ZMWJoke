@@ -21,7 +21,7 @@ class JokeRequestManager: BaseRequestManager {
         if let aPageSize = parameters["pageSize"] {
             pageSize = aPageSize as! Int
         }
-        let lastString = String.init(format: "http://japi.juhe.cn/joke/content/text.from?page=%d&pagesize=%d&key=%@", page,pageSize,"b13defd332c76c3abf2895f7796e2a45")
+        let lastString = String.init(format: "https://japi.juhe.cn/joke/content/text.from?page=%d&pagesize=%d&key=%@", page,pageSize,"b13defd332c76c3abf2895f7796e2a45")
         BaseRequestManager.baseRequestAction(urlString:lastString, method: HTTPMethod.get, parameters: parameters, completion: completion)
         
     }
