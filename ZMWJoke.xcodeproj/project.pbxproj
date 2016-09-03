@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7AFFC564F89F5197F3200E38 /* Pods_ZMWJoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581B1A93B2DEF48CB5DAFC66 /* Pods_ZMWJoke.framework */; };
+		B219211C1D7A51B400137E7F /* PathMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = B219211B1D7A51B400137E7F /* PathMacros.swift */; };
 		B25B364C1D71D759009D5584 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B364B1D71D759009D5584 /* BaseViewController.swift */; };
 		B25B364E1D71D77A009D5584 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B364D1D71D77A009D5584 /* TextViewController.swift */; };
 		B25B36501D71D78F009D5584 /* XHTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B364F1D71D78F009D5584 /* XHTabBar.swift */; };
 		B25B36631D71DD48009D5584 /* DHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36541D71DD48009D5584 /* DHButton.swift */; };
-		B25B36641D71DD48009D5584 /* SizeMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36551D71DD48009D5584 /* SizeMacro.swift */; };
+		B25B36641D71DD48009D5584 /* SizeMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36551D71DD48009D5584 /* SizeMacros.swift */; };
 		B25B36661D71DD48009D5584 /* BaseRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36571D71DD48009D5584 /* BaseRequestManager.swift */; };
 		B25B36671D71DD48009D5584 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36581D71DD48009D5584 /* NSDate+Extension.swift */; };
 		B25B36691D71DD48009D5584 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B365A1D71DD48009D5584 /* Tool.swift */; };
@@ -39,11 +40,12 @@
 		08D70A492D2F28796D3FA820 /* Pods-ZMWJoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZMWJoke.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZMWJoke/Pods-ZMWJoke.release.xcconfig"; sourceTree = "<group>"; };
 		581B1A93B2DEF48CB5DAFC66 /* Pods_ZMWJoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZMWJoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		834DF9566F18E5EACBFB7F32 /* Pods-ZMWJoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZMWJoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZMWJoke/Pods-ZMWJoke.debug.xcconfig"; sourceTree = "<group>"; };
+		B219211B1D7A51B400137E7F /* PathMacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathMacros.swift; sourceTree = "<group>"; };
 		B25B364B1D71D759009D5584 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B25B364D1D71D77A009D5584 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		B25B364F1D71D78F009D5584 /* XHTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHTabBar.swift; sourceTree = "<group>"; };
 		B25B36541D71DD48009D5584 /* DHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHButton.swift; sourceTree = "<group>"; };
-		B25B36551D71DD48009D5584 /* SizeMacro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeMacro.swift; sourceTree = "<group>"; };
+		B25B36551D71DD48009D5584 /* SizeMacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeMacros.swift; sourceTree = "<group>"; };
 		B25B36571D71DD48009D5584 /* BaseRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequestManager.swift; sourceTree = "<group>"; };
 		B25B36581D71DD48009D5584 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		B25B365A1D71DD48009D5584 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
@@ -176,7 +178,8 @@
 		B25B36781D71DE18009D5584 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
-				B25B36551D71DD48009D5584 /* SizeMacro.swift */,
+				B25B36551D71DD48009D5584 /* SizeMacros.swift */,
+				B219211B1D7A51B400137E7F /* PathMacros.swift */,
 			);
 			name = Macro;
 			sourceTree = "<group>";
@@ -366,7 +369,7 @@
 				B25B36831D7282AB009D5584 /* LoginViewController.swift in Sources */,
 				FFB2DE0B1D7801FD003D0E70 /* TextCell.swift in Sources */,
 				B25B366E1D71DD48009D5584 /* UIStoryboard+Extension.swift in Sources */,
-				B25B36641D71DD48009D5584 /* SizeMacro.swift in Sources */,
+				B25B36641D71DD48009D5584 /* SizeMacros.swift in Sources */,
 				B25B36501D71D78F009D5584 /* XHTabBar.swift in Sources */,
 				B25B36811D7281E9009D5584 /* PersonViewController.swift in Sources */,
 				B25B367C1D727EB1009D5584 /* CollectionViewController.swift in Sources */,
@@ -375,6 +378,7 @@
 				B25B364E1D71D77A009D5584 /* TextViewController.swift in Sources */,
 				FF56DC701D77B96300F8CFAC /* JokeRequestManager.swift in Sources */,
 				FFA564001D7916DA006472DC /* TextModel.swift in Sources */,
+				B219211C1D7A51B400137E7F /* PathMacros.swift in Sources */,
 				B25B366F1D71DD48009D5584 /* UIView+Util.swift in Sources */,
 				B25B366D1D71DD48009D5584 /* UINib+Extension.swift in Sources */,
 			);
