@@ -26,7 +26,8 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
-
+.DS_Store
+Pods/Pods.xcodeproj/xcuserdata/xiaoming.xcuserdatad/xcschemes/xcschememanagement.plist
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
