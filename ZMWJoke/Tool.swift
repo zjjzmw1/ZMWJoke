@@ -44,7 +44,7 @@ public class Tool {
      
      - returns: UIButton
      */
-    public class func initAButton(frame:CGRect ,titleString:String, font:UIFont, textColor:UIColor, bgImage:UIImage) -> UIButton {
+    public class func initAButton(frame:CGRect ,titleString:String, font:UIFont, textColor:UIColor, bgImage:UIImage?) -> UIButton {
         let aButton = UIButton()
         aButton.frame = frame
         aButton.backgroundColor = UIColor.clear

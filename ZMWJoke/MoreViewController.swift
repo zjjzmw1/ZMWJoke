@@ -15,7 +15,7 @@ class MoreViewController: BaseViewController {
         self.navigationItem.title = "更多"
         self.view.backgroundColor = UIColor.darkGray
 
-        let button = Tool.initAButton(frame: CGRect.init(x: 100, y: 100, width: 100, height: 40), titleString: "push", font: UIFont.systemFont(ofSize: 15), textColor: UIColor.red, bgImage: UIImage.init())
+        let button = Tool.initAButton(frame: CGRect.init(x: 100, y: 100, width: 100, height: 40), titleString: "push", font: UIFont.systemFont(ofSize: 15), textColor: UIColor.red, bgImage: nil)
         button.addTarget(self, action: #selector(pushAction), for: UIControlEvents.touchUpInside)
         self.view.addSubview(button)
     }

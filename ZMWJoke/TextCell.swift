@@ -31,7 +31,7 @@ class TextCell: UITableViewCell {
         contentLabel = Tool.initALabel(frame: CGRect.init(x: 10, y: 10, width: SCREEN_WIDTH - 10, height: 100), textString: "测试文字", font: .systemFont(ofSize: 16), textColor: .black)
         self.contentView.addSubview(contentLabel)
         // 收藏按钮
-        collectionButton = Tool.initAButton(frame: CGRect.init(x: 10, y: 10, width: SCREEN_WIDTH - 10, height: 100), titleString: "收藏", font: .systemFont(ofSize: 15), textColor: .red, bgImage: UIImage())
+        collectionButton = Tool.initAButton(frame: CGRect.init(x: 10, y: 10, width: SCREEN_WIDTH - 10, height: 100), titleString: "收藏", font: .systemFont(ofSize: 15), textColor: .red, bgImage: nil)
         self.contentView.addSubview(collectionButton)
         collectionButton.addTarget(self, action: #selector(buttonAction(button:)), for: .touchUpInside)
         
