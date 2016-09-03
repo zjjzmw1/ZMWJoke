@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7AFFC564F89F5197F3200E38 /* Pods_ZMWJoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581B1A93B2DEF48CB5DAFC66 /* Pods_ZMWJoke.framework */; };
 		B219211C1D7A51B400137E7F /* PathMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = B219211B1D7A51B400137E7F /* PathMacros.swift */; };
+		B219211E1D7A89C700137E7F /* UtilMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = B219211D1D7A89C700137E7F /* UtilMacros.swift */; };
 		B25B364C1D71D759009D5584 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B364B1D71D759009D5584 /* BaseViewController.swift */; };
 		B25B364E1D71D77A009D5584 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B364D1D71D77A009D5584 /* TextViewController.swift */; };
 		B25B36501D71D78F009D5584 /* XHTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B364F1D71D78F009D5584 /* XHTabBar.swift */; };
@@ -41,6 +42,7 @@
 		581B1A93B2DEF48CB5DAFC66 /* Pods_ZMWJoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZMWJoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		834DF9566F18E5EACBFB7F32 /* Pods-ZMWJoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZMWJoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZMWJoke/Pods-ZMWJoke.debug.xcconfig"; sourceTree = "<group>"; };
 		B219211B1D7A51B400137E7F /* PathMacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathMacros.swift; sourceTree = "<group>"; };
+		B219211D1D7A89C700137E7F /* UtilMacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilMacros.swift; sourceTree = "<group>"; };
 		B25B364B1D71D759009D5584 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B25B364D1D71D77A009D5584 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		B25B364F1D71D78F009D5584 /* XHTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHTabBar.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				B25B36551D71DD48009D5584 /* SizeMacros.swift */,
 				B219211B1D7A51B400137E7F /* PathMacros.swift */,
+				B219211D1D7A89C700137E7F /* UtilMacros.swift */,
 			);
 			name = Macro;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				B25B36691D71DD48009D5584 /* Tool.swift in Sources */,
 				B25B36701D71DD48009D5584 /* Urls.swift in Sources */,
 				B25B367E1D727EBA009D5584 /* MoreViewController.swift in Sources */,
+				B219211E1D7A89C700137E7F /* UtilMacros.swift in Sources */,
 				B25B36631D71DD48009D5584 /* DHButton.swift in Sources */,
 				B25B367A1D727EA2009D5584 /* PictureViewController.swift in Sources */,
 				B25B36671D71DD48009D5584 /* NSDate+Extension.swift in Sources */,
