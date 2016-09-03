@@ -19,7 +19,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         super.viewDidLoad()
         self.navigationItem.title = "文字"
         // 初始化表格
-        self.tableView = UITableView(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight - kTabBarHeight - 15), style: UITableViewStyle.plain)
+        self.tableView = UITableView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TABBAR_HEIGHT - 15), style: UITableViewStyle.plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view .addSubview(self.tableView)

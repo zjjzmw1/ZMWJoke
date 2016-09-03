@@ -12,7 +12,7 @@
 		B25B364E1D71D77A009D5584 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B364D1D71D77A009D5584 /* TextViewController.swift */; };
 		B25B36501D71D78F009D5584 /* XHTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B364F1D71D78F009D5584 /* XHTabBar.swift */; };
 		B25B36631D71DD48009D5584 /* DHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36541D71DD48009D5584 /* DHButton.swift */; };
-		B25B36641D71DD48009D5584 /* GlobalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36551D71DD48009D5584 /* GlobalDefine.swift */; };
+		B25B36641D71DD48009D5584 /* SizeMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36551D71DD48009D5584 /* SizeMacro.swift */; };
 		B25B36661D71DD48009D5584 /* BaseRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36571D71DD48009D5584 /* BaseRequestManager.swift */; };
 		B25B36671D71DD48009D5584 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B36581D71DD48009D5584 /* NSDate+Extension.swift */; };
 		B25B36691D71DD48009D5584 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B365A1D71DD48009D5584 /* Tool.swift */; };
@@ -43,7 +43,7 @@
 		B25B364D1D71D77A009D5584 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		B25B364F1D71D78F009D5584 /* XHTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHTabBar.swift; sourceTree = "<group>"; };
 		B25B36541D71DD48009D5584 /* DHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHButton.swift; sourceTree = "<group>"; };
-		B25B36551D71DD48009D5584 /* GlobalDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefine.swift; sourceTree = "<group>"; };
+		B25B36551D71DD48009D5584 /* SizeMacro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeMacro.swift; sourceTree = "<group>"; };
 		B25B36571D71DD48009D5584 /* BaseRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequestManager.swift; sourceTree = "<group>"; };
 		B25B36581D71DD48009D5584 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		B25B365A1D71DD48009D5584 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		B25B36781D71DE18009D5584 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
-				B25B36551D71DD48009D5584 /* GlobalDefine.swift */,
+				B25B36551D71DD48009D5584 /* SizeMacro.swift */,
 			);
 			name = Macro;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				B25B36831D7282AB009D5584 /* LoginViewController.swift in Sources */,
 				FFB2DE0B1D7801FD003D0E70 /* TextCell.swift in Sources */,
 				B25B366E1D71DD48009D5584 /* UIStoryboard+Extension.swift in Sources */,
-				B25B36641D71DD48009D5584 /* GlobalDefine.swift in Sources */,
+				B25B36641D71DD48009D5584 /* SizeMacro.swift in Sources */,
 				B25B36501D71D78F009D5584 /* XHTabBar.swift in Sources */,
 				B25B36811D7281E9009D5584 /* PersonViewController.swift in Sources */,
 				B25B367C1D727EB1009D5584 /* CollectionViewController.swift in Sources */,

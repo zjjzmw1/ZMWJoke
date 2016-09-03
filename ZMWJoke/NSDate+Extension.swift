@@ -15,7 +15,7 @@ enum dateFormatStyle: String {
 extension NSDate {
     
     class func formatterWithStyle(withStyle style: dateFormatStyle) -> DateFormatter {
-        let formatter = kDateFormatter
+        let formatter = DateFormatter()
         formatter.locale = NSLocale.current
         formatter.dateFormat = style.rawValue
         return formatter
