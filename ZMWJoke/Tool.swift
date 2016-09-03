@@ -51,7 +51,7 @@ public class Tool {
         aButton .setTitle(titleString, for: UIControlState.normal)
         aButton .setTitleColor(textColor, for: UIControlState.normal)
         aButton.titleLabel?.font = font
-        if bgImage != nil {
+        if bgImage != nil { // bgImage 必须是可选类型，否则警告
             aButton .setBackgroundImage(bgImage, for: UIControlState.normal)
         }
         
