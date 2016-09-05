@@ -201,17 +201,18 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
 
     /// 保存NSData数据到本地文件
     func saveDataToFile(jsonData: Data) {
-        if kPathDocument.count > 0 {
-            let fileUrl = NSURL(fileURLWithPath: "\(kPathDocument[0])/joke_content.txt")
+        //if kPathDocument.count > 0 { // 用Temp目录就可以了，暂时不知道原因
+            let file = "joke_content.txt"
+            let fileUrl = URL(fileURLWithPath: kPathTemp).appendingPathComponent(file)
             print("fileUrl = \(fileUrl)")
             let data = NSMutableData()
             data.setData(jsonData)
-            if data.write(toFile: fileUrl.path!, atomically: true) {
-                print("保存成功：\(fileUrl.path!)")
+            if data.write(toFile: fileUrl.path, atomically: true) {
+                print("保存成功：\(fileUrl.path)")
             } else {
-                print("保存失败：\(fileUrl.path!)")
+                print("保存失败：\(fileUrl.path)")
             }
-        }
+        //}
     }
     
     /// 转换数组到JSONStirng
