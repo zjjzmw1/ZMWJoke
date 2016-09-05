@@ -28,6 +28,18 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
         // Class 注册
         tableView.register(TextCell.self, forCellReuseIdentifier: "TextCellID")
+        
+        // 读取本地数据
+        let resultData = self.getDataFromFile()
+        if resultData != nil {
+            let resultJson = NSString(data: resultData! as Data, encoding: UInt(String.Encoding.utf8.hashValue))
+            let  resultArr = NSArray(contentsOfFile: resultJson! as String)
+            print("获取成功===\(resultArr!)");
+
+
+        } else {
+            print("获取失败");
+        }
         // 请求数据
         self.requestContent()
     }
@@ -214,6 +226,32 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
             }
         //}
     }
+    
+    /// 从本地获取Data数据
+    func getDataFromFile() -> NSData? {
+        let file = "joke_content.txt"
+        //let fileUrl = URL(fileURLWithPath: kPathTemp).appendingPathComponent(file)
+        let fileUrl = URL(fileURLWithPath: kPathTemp + file)
+
+        print("fileUrl = \(fileUrl)")
+        var data : NSData?
+        //data = NSData(contentsOf: fileUrl）
+            
+        //var path: String = Bundle.main.path(forResource: "joke_content", ofType: "txt")!
+        //var nsUrl = URL(fileURLWithPath: path)
+        // data = NSData(contentsOfURL: nsUrl as URL)!
+        
+        data = NSData.init(contentsOf: fileUrl)
+        
+        if data != nil {
+            print("获取成功：\(fileUrl.path)")
+            return data!
+        } else {
+            print("获取失败：\(fileUrl.path)")
+            return nil
+        }
+    }
+
     
     /// 转换数组到JSONStirng
     func toJSONString(arr: NSArray!) -> NSString? {
