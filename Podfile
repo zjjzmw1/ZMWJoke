@@ -17,6 +17,8 @@ pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch =
 pod 'KDInteractiveNavigationController', '~> 0.1.2'                 # 导航栏
 # 暂时别删。删除了再下载就出问题了。（自己修改支持3.0的）暂时也不用了
 pod 'StatusBarNotificationCenter', '~> 1.1.3'                       # statusBar导航栏通知UI
+# 下拉刷新、上提刷新
+pod 'MRPullToRefreshLoadMore', '~> 0.0.2'
 
 end 
 
