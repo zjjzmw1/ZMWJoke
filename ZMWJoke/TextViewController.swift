@@ -15,7 +15,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     var arr : NSMutableArray = NSMutableArray()
     var tableView : MRTableView!
     var rowHeightCache : NSCache<AnyObject, AnyObject> = NSCache()
-    
+    var currentPage = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "文字"
@@ -28,38 +28,78 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
         // Class 注册
         tableView.register(TextCell.self, forCellReuseIdentifier: "TextCellID")
-        
+        // 请求数据
+        self.requestContent()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 请求文字数据 - 暂时放这
-        self.requestContent()
 
     }
     
+    /// 下拉刷新请求
     func requestContent() {
-        
-        let dict : NSDictionary = ["page":1, "pageSize": 20]
+        currentPage = 1
+        let dict : NSDictionary = ["page":currentPage, "pageSize": 20]
         JokeRequestManager.contentRequestAction(parameters: dict) { (isSuccess, code, result) in
-            print("isSuccess====\(isSuccess),code===\(code),result===\(result)")
-            var resultData : NSArray?
-            if result != nil {
-                let resultDict : NSDictionary = result as! NSDictionary
-                let dataResultDict : NSDictionary = (resultDict.object(forKey: "result") as? NSDictionary)!
-                resultData = (dataResultDict.object(forKey: "data") as? NSArray)!
-            }
-            if resultData != nil {
-                for i in 0..<resultData!.count {
-                    let dict : NSDictionary = (resultData?.object(at: i) as? NSDictionary)!
-                    let textModel = TextModel(content: dict.object(forKey: "content") as! String?, hashId: dict.object(forKey: "hashId") as! String?, updatetime: dict.object(forKey: "updatetime") as! String?, unixtime: dict.object(forKey: "unixtime") as! Int?)
-                    self.arr.add(textModel)
+            if isSuccess { // 请求数据成功
+                var resultData : NSArray?
+                if result != nil {
+                    let resultDict : NSDictionary = result as! NSDictionary
+                    let dataResultDict : NSDictionary = (resultDict.object(forKey: "result") as? NSDictionary)!
+                    resultData = (dataResultDict.object(forKey: "data") as? NSArray)!
+                }
+                if resultData != nil && (resultData?.count)! > 0 {
+                    self.arr = NSMutableArray()
+                    for i in 0..<resultData!.count {
+                        let dict : NSDictionary = (resultData?.object(at: i) as? NSDictionary)!
+                        let textModel = TextModel(content: dict.object(forKey: "content") as! String?, hashId: dict.object(forKey: "hashId") as! String?, updatetime: dict.object(forKey: "updatetime") as! String?, unixtime: dict.object(forKey: "unixtime") as! Int?)
+                        self.arr.add(textModel)
+                    }
                 }
             }
-            self.tableView.reloadData()
+            // 暂时下拉刷新延迟一秒结束
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+                self.tableView.pullToRefresh.setPullState(state: MRPullToRefreshLoadMore.ViewState.Normal)
+                self.tableView.reloadData()
+
+            }
         }
     }
     
+    /// 上提加载更多的请求
+    func requestMoreContent() {
+        currentPage += 1
+        if currentPage < 1 {
+            currentPage = 1
+        }
+        let dict : NSDictionary = ["page":currentPage, "pageSize": 20]
+        JokeRequestManager.contentRequestAction(parameters: dict) { (isSuccess, code, result) in
+            if isSuccess { // 请求数据成功
+                var resultData : NSArray?
+                if result != nil {
+                    let resultDict : NSDictionary = result as! NSDictionary
+                    let dataResultDict : NSDictionary = (resultDict.object(forKey: "result") as? NSDictionary)!
+                    resultData = (dataResultDict.object(forKey: "data") as? NSArray)!
+                }
+                if resultData != nil && (resultData?.count)! > 0 {
+                    for i in 0..<resultData!.count {
+                        let dict : NSDictionary = (resultData?.object(at: i) as? NSDictionary)!
+                        let textModel = TextModel(content: dict.object(forKey: "content") as! String?, hashId: dict.object(forKey: "hashId") as! String?, updatetime: dict.object(forKey: "updatetime") as! String?, unixtime: dict.object(forKey: "unixtime") as! Int?)
+                        self.arr.add(textModel)
+                    }
+                } else {
+                    self.currentPage -= 1
+                }
+            } else {
+                self.currentPage -= 1
+            }
+            
+            self.tableView.pullToRefresh.setLoadMoreState(state: MRPullToRefreshLoadMore.ViewState.Normal)
+            self.tableView.reloadData()
+        }
+    }
+
     // --------------------------- tableView 上拉、下拉刷新 --------------------------
 
     func viewShouldRefresh(scrollView:UIScrollView) {
@@ -70,11 +110,12 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
         // refresh table view
         tableView.pullToRefresh.setPullState(state: MRPullToRefreshLoadMore.ViewState.LoadingVertical)
+        // 下拉刷新方法
+        self.requestContent()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             tableView.pullToRefresh.setPullState(state: MRPullToRefreshLoadMore.ViewState.Normal)
             tableView.reloadData()
         }
-        
     }
     
     func viewShouldLoadMore(scrollView:UIScrollView) {
@@ -84,6 +125,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         }
         
         // load more
+        self.requestMoreContent()
         tableView.pullToRefresh.setLoadMoreState(state: MRPullToRefreshLoadMore.ViewState.LoadingVertical)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             tableView.pullToRefresh.setLoadMoreState(state: MRPullToRefreshLoadMore.ViewState.Normal)
