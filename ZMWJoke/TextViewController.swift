@@ -69,9 +69,11 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         }
         
         // refresh table view
-        print("下拉刷新。。。")
-        tableView.reloadData()
-        tableView.pullToRefresh.setPullState(state: MRPullToRefreshLoadMore.ViewState.Normal)
+        tableView.pullToRefresh.setPullState(state: MRPullToRefreshLoadMore.ViewState.LoadingVertical)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+            tableView.pullToRefresh.setPullState(state: MRPullToRefreshLoadMore.ViewState.Normal)
+            tableView.reloadData()
+        }
         
     }
     
@@ -82,9 +84,12 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         }
         
         // load more
-        print("上拉加载更多。。。")
-        tableView.reloadData()
-        tableView.pullToRefresh.setLoadMoreState(state: MRPullToRefreshLoadMore.ViewState.Normal)
+        tableView.pullToRefresh.setLoadMoreState(state: MRPullToRefreshLoadMore.ViewState.LoadingVertical)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+            tableView.pullToRefresh.setLoadMoreState(state: MRPullToRefreshLoadMore.ViewState.Normal)
+            tableView.reloadData()
+        }
+        
     }
     // --------------------------- tableView 代理方法 --------------------------
     
