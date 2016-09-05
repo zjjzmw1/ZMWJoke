@@ -56,13 +56,18 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                         let textModel = TextModel(content: dict.object(forKey: "content") as! String?, hashId: dict.object(forKey: "hashId") as! String?, updatetime: dict.object(forKey: "updatetime") as! String?, unixtime: dict.object(forKey: "unixtime") as! Int?)
                         self.arr.add(textModel)
                     }
+                    
+                   // 保存数据 - 应该放在子线程
+                    let jsonString : NSString = self.toJSONString(arr: resultData!)!
+                    let jsonData :Data? = jsonString.data(using: UInt(String.Encoding.utf8.hashValue))
+                    self.saveDataToFile(jsonData: jsonData!)
+                    
                 }
             }
             // 暂时下拉刷新延迟一秒结束
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                 self.tableView.pullToRefresh.setPullState(state: MRPullToRefreshLoadMore.ViewState.Normal)
                 self.tableView.reloadData()
-
             }
         }
     }
@@ -193,5 +198,31 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
             self.navigationController!.pushViewController(detailVC!, animated: true)
         }
     }
+
+    /// 保存NSData数据到本地文件
+    func saveDataToFile(jsonData: Data) {
+        if kPathDocument.count > 0 {
+            let fileUrl = NSURL(fileURLWithPath: "\(kPathDocument[0])/joke_content.txt")
+            print("fileUrl = \(fileUrl)")
+            let data = NSMutableData()
+            data.setData(jsonData)
+            if data.write(toFile: fileUrl.path!, atomically: true) {
+                print("保存成功：\(fileUrl.path!)")
+            } else {
+                print("保存失败：\(fileUrl.path!)")
+            }
+        }
+    }
     
+    /// 转换数组到JSONStirng
+    func toJSONString(arr: NSArray!) -> NSString? {
+        guard let data = try? JSONSerialization.data(withJSONObject: arr, options: .prettyPrinted),
+            // Notice the extra question mark here!
+            let strJson = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else {
+                //throws MyError.InvalidJSON
+            return nil
+        }
+        
+        return strJson
+    }
 }
