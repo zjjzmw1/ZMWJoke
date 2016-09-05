@@ -21,13 +21,13 @@ public class MRPullToRefreshLoadMore:NSObject {
     
     public var indicatorTintColor: UIColor? {
         didSet {
-            indicatorLoadMore.indicatorTintColor = (indicatorTintColor ?? UIColor.white)
-            indicatorPullToRefresh.indicatorTintColor = (indicatorTintColor ?? UIColor.white)
+            indicatorLoadMore.indicatorTintColor = (indicatorTintColor ?? UIColor.red)
+            indicatorPullToRefresh.indicatorTintColor = (indicatorTintColor ?? UIColor.red)
         }
     }
 
     var indicatorSize: CGSize = CGSize.init(width: 30.0, height: 30.0)
-    public var textColor:UIColor = UIColor.white
+    public var textColor:UIColor = UIColor.red
     
     public enum ViewState {
         case Normal
@@ -52,7 +52,7 @@ public class MRPullToRefreshLoadMore:NSObject {
         self.scrollView = scrollView
         scrollView.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.new, context: nil)
         startingContentInset = scrollView.contentInset
-        print(startingContentInset)
+        //print(startingContentInset)
         self.enabled = true
         setPullState(state: ViewState.Normal)
         setLoadMoreState(state: ViewState.Normal)
@@ -243,7 +243,7 @@ public class MRPullToRefreshLoadMore:NSObject {
                     }
                 }
                 
-                print(loadMoreViewState)
+                //print(loadMoreViewState)
             }
         default:
             break

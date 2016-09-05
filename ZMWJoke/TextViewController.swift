@@ -8,20 +8,22 @@
 
 import UIKit
 import Alamofire
+import MRPullToRefreshLoadMore
 
-class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate {
+class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate,MRPullToRefreshLoadMoreDelegate {
 
     var arr : NSMutableArray = NSMutableArray()
-    var tableView : UITableView!
+    var tableView : MRTableView!
     var rowHeightCache : NSCache<AnyObject, AnyObject> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "文字"
         // 初始化表格
-        self.tableView = UITableView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TABBAR_HEIGHT - 15), style: UITableViewStyle.plain)
+        self.tableView = MRTableView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TABBAR_HEIGHT - 15), style: UITableViewStyle.plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.pullToRefresh.pullToRefreshLoadMoreDelegate = self
         self.view .addSubview(self.tableView)
         
         // Class 注册
@@ -58,6 +60,32 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         }
     }
     
+    // --------------------------- tableView 上拉、下拉刷新 --------------------------
+
+    func viewShouldRefresh(scrollView:UIScrollView) {
+        // if you need a tableview instance
+        guard let tableView = scrollView as? MRTableView else {
+            return
+        }
+        
+        // refresh table view
+        print("下拉刷新。。。")
+        tableView.reloadData()
+        tableView.pullToRefresh.setPullState(state: MRPullToRefreshLoadMore.ViewState.Normal)
+        
+    }
+    
+    func viewShouldLoadMore(scrollView:UIScrollView) {
+        // if you need a tableview instance
+        guard let tableView = scrollView as? MRTableView else {
+            return
+        }
+        
+        // load more
+        print("上拉加载更多。。。")
+        tableView.reloadData()
+        tableView.pullToRefresh.setLoadMoreState(state: MRPullToRefreshLoadMore.ViewState.Normal)
+    }
     // --------------------------- tableView 代理方法 --------------------------
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

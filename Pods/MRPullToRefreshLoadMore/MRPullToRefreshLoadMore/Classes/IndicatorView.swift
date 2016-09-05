@@ -7,7 +7,7 @@ public class IndicatorView: UIView {
     
     public var indicatorTintColor: UIColor? {
         didSet {
-            circleLayer.strokeColor = (indicatorTintColor ?? UIColor.white).cgColor
+            circleLayer.strokeColor = (indicatorTintColor ?? UIColor.red).cgColor
         }
     }
     
@@ -61,7 +61,7 @@ public class IndicatorView: UIView {
     private func setupViews() {
         circleLayer.lineWidth = 2
         circleLayer.fillColor = nil
-        circleLayer.strokeColor = UIColor.white.cgColor
+        circleLayer.strokeColor = UIColor.red.cgColor
         circleLayer.strokeStart = 0
         circleLayer.strokeEnd = 0
         layer.addSublayer(circleLayer)
