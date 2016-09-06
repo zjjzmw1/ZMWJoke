@@ -30,13 +30,11 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         tableView.register(TextCell.self, forCellReuseIdentifier: "TextCellID")
         
         // 读取本地数据
-        let resultData = self.getDataFromFile()
-        if resultData != nil {
-            let resultJson = NSString(data: resultData! as Data, encoding: UInt(String.Encoding.utf8.hashValue))
-            let  resultArr = NSArray(contentsOfFile: resultJson! as String)
-            print("获取成功===\(resultArr!)");
-
-
+        if let resultJson = self.getJsonFromFile() {
+            //let readData = try? JSONSerialization.data(withJSONObject: resultJson, options: .prettyPrinted)
+            
+            let  resultArr = resultJson as! NSArray
+            print("获取成功===\(resultArr)");
         } else {
             print("获取失败");
         }
@@ -228,28 +226,26 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     }
     
     /// 从本地获取Data数据
-    func getDataFromFile() -> NSData? {
+    func getJsonFromFile() -> Any? {
         let file = "joke_content.txt"
-        //let fileUrl = URL(fileURLWithPath: kPathTemp).appendingPathComponent(file)
-        let fileUrl = URL(fileURLWithPath: kPathTemp + file)
+        let fileUrl = URL(fileURLWithPath: kPathTemp).appendingPathComponent(file)
+        //let fileUrl = URL(fileURLWithPath: kPathTemp + file)
 
         print("fileUrl = \(fileUrl)")
-        var data : NSData?
-        //data = NSData(contentsOf: fileUrl）
+        if let readData = NSData.init(contentsOfFile: fileUrl.path) {
+            print("获取成功,readData===\(NSString.init(data: readData as Data, encoding: String.Encoding.utf8.rawValue))")
+            //return NSString.init(data: readData as Data, encoding: String.Encoding.utf8.rawValue)
             
-        //var path: String = Bundle.main.path(forResource: "joke_content", ofType: "txt")!
-        //var nsUrl = URL(fileURLWithPath: path)
-        // data = NSData(contentsOfURL: nsUrl as URL)!
-        
-        data = NSData.init(contentsOf: fileUrl)
-        
-        if data != nil {
-            print("获取成功：\(fileUrl.path)")
-            return data!
+            let jsonValue = try? JSONSerialization.jsonObject(with: readData as Data, options: .allowFragments)
+                // Notice the extra question mark here!
+
+            return jsonValue
+
         } else {
             print("获取失败：\(fileUrl.path)")
             return nil
         }
+        
     }
 
     
