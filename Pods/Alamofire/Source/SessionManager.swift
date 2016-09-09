@@ -304,7 +304,8 @@ open class SessionManager {
         to destination: Request.DownloadFileDestination)
         -> Request
     {
-        return download(.request(urlRequest.urlRequest), to: destination)
+//        return download(.request(urlRequest.urlRequest), to: destination)
+        return download(urlRequest.urlRequest, to: destination)
     }
 
     // MARK: Resume Data
@@ -322,14 +323,15 @@ open class SessionManager {
     /// - returns: The created download `Request`.
     @discardableResult
     open func download(resourceWithin resumeData: Data, to destination: Request.DownloadFileDestination) -> Request {
-        return download(.resumeData(resumeData), to: destination)
+//        return download(.resumeData(resumeData), to: destination)
+        return download(resourceWithin: resumeData, to: destination)
     }
 
     // MARK: Private - Download Implementation
 
     private func download(
         _ downloadable: Downloadable,
-        to destination: Request.DownloadFileDestination)
+        to destination: @escaping Request.DownloadFileDestination)
         -> Request
     {
         var downloadTask: URLSessionDownloadTask!
