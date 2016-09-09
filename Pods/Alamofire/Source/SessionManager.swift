@@ -331,7 +331,7 @@ open class SessionManager {
 
     private func download(
         _ downloadable: Downloadable,
-        to destination: @escaping Request.DownloadFileDestination)
+        to destination: Request.DownloadFileDestination)
         -> Request
     {
         var downloadTask: URLSessionDownloadTask!

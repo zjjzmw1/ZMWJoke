@@ -8,16 +8,32 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>KDInteractiveNavigationController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>MRPullToRefreshLoadMore.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-ZMWJoke.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>StatusBarNotificationCenter.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -43,6 +59,21 @@
 			<true/>
 		</dict>
 		<key>A33DFA4181FCA9DD83BC04E439CFF062</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BABC96236BF320E97EAAD66EEA7BF174</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C93ECCC75FFF4229711DA43447AD71C6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F91E0B81D04D42A5D2B4D618A29E6528</key>
 		<dict>
 			<key>primary</key>
 			<true/>
