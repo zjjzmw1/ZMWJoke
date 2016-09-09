@@ -31,15 +31,26 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
         // 读取本地数据
         if let resultJson = self.getJsonFromFile() {
-            //let readData = try? JSONSerialization.data(withJSONObject: resultJson, options: .prettyPrinted)
-            
-            let  resultArr = resultJson as! NSArray
+            let  resultArr = resultJson as? NSArray
             print("获取成功===\(resultArr)");
+            if resultArr != nil && (resultArr?.count)! > 0 {
+                for i in 0..<resultArr!.count {
+                    let dict : NSDictionary = (resultArr?.object(at: i) as? NSDictionary)!
+                    let textModel = TextModel(content: dict.object(forKey: "content") as! String?, hashId: dict.object(forKey: "hashId") as! String?, updatetime: dict.object(forKey: "updatetime") as! String?, unixtime: dict.object(forKey: "unixtime") as! Int?)
+                    self.arr.add(textModel)
+                }
+            } else {
+                print("获取失败");
+
+            }
+
         } else {
             print("获取失败");
         }
-        // 请求数据
+        
+        // 请求数据 -- 第一次进入请求一次.
         self.requestContent()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
