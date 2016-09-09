@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import MRPullToRefreshLoadMore
 
+let textCellId = "TextCellID"
+
 class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate,MRPullToRefreshLoadMoreDelegate {
 
     var arr : NSMutableArray = NSMutableArray()
@@ -20,14 +22,14 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         super.viewDidLoad()
         self.navigationItem.title = "文字"
         // 初始化表格
-        self.tableView = MRTableView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TABBAR_HEIGHT - 15), style: UITableViewStyle.plain)
+        self.tableView = MRTableView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TABBAR_HEIGHT - NAVIGATIONBAR_HEIGHT), style: UITableViewStyle.plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.pullToRefresh.pullToRefreshLoadMoreDelegate = self
         self.view .addSubview(self.tableView)
         
         // Class 注册
-        tableView.register(TextCell.self, forCellReuseIdentifier: "TextCellID")
+        tableView.register(TextCell.self, forCellReuseIdentifier: textCellId)
         
         // 读取本地数据
         if let resultJson = Tool.getJsonFromFile(fileName: "joke_content.txt") {
@@ -176,7 +178,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 500
+        return 200
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -187,10 +189,8 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 自定义cell
         var cell:TextCell?
-        cell = tableView.dequeueReusableCell(withIdentifier: "TextCellID", for: indexPath) as? TextCell
-        if cell == nil {
-            cell = TextCell(style: .default, reuseIdentifier: "TextCellID")
-        }
+        cell = tableView.dequeueReusableCell(withIdentifier: textCellId) as? TextCell
+
         // 收藏按钮
         cell?.indexP = indexPath
         cell?.collectionButton.isHidden = true
