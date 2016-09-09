@@ -30,9 +30,9 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         tableView.register(TextCell.self, forCellReuseIdentifier: "TextCellID")
         
         // 读取本地数据
-        if let resultJson = self.getJsonFromFile() {
+        if let resultJson = Tool.getJsonFromFile(fileName: "joke_content.txt") {
             let  resultArr = resultJson as? NSArray
-            print("获取成功===\(resultArr)");
+            print("获取成功");
             if resultArr != nil && (resultArr?.count)! > 0 {
                 for i in 0..<resultArr!.count {
                     let dict : NSDictionary = (resultArr?.object(at: i) as? NSDictionary)!
@@ -79,9 +79,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                     }
                     
                    // 保存数据 - 应该放在子线程
-                    let jsonString : NSString = self.toJSONString(arr: resultData!)!
-                    let jsonData :Data? = jsonString.data(using: UInt(String.Encoding.utf8.hashValue))
-                    self.saveDataToFile(jsonData: jsonData!)
+                    Tool.saveDataToFile(resultArray: resultData! , fileName: "joke_content.txt")
                     
                 }
             }
@@ -220,55 +218,5 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         }
     }
 
-    /// 保存NSData数据到本地文件
-    func saveDataToFile(jsonData: Data) {
-        //if kPathDocument.count > 0 { // 用Temp目录就可以了，暂时不知道原因
-            let file = "joke_content.txt"
-            let fileUrl = URL(fileURLWithPath: kPathTemp).appendingPathComponent(file)
-            print("fileUrl = \(fileUrl)")
-            let data = NSMutableData()
-            data.setData(jsonData)
-            if data.write(toFile: fileUrl.path, atomically: true) {
-                print("保存成功：\(fileUrl.path)")
-            } else {
-                print("保存失败：\(fileUrl.path)")
-            }
-        //}
-    }
-    
-    /// 从本地获取Data数据
-    func getJsonFromFile() -> Any? {
-        let file = "joke_content.txt"
-        let fileUrl = URL(fileURLWithPath: kPathTemp).appendingPathComponent(file)
-        //let fileUrl = URL(fileURLWithPath: kPathTemp + file)
 
-        print("fileUrl = \(fileUrl)")
-        if let readData = NSData.init(contentsOfFile: fileUrl.path) {
-            print("获取成功,readData===\(NSString.init(data: readData as Data, encoding: String.Encoding.utf8.rawValue))")
-            //return NSString.init(data: readData as Data, encoding: String.Encoding.utf8.rawValue)
-            
-            let jsonValue = try? JSONSerialization.jsonObject(with: readData as Data, options: .allowFragments)
-                // Notice the extra question mark here!
-
-            return jsonValue
-
-        } else {
-            print("获取失败：\(fileUrl.path)")
-            return nil
-        }
-        
-    }
-
-    
-    /// 转换数组到JSONStirng
-    func toJSONString(arr: NSArray!) -> NSString? {
-        guard let data = try? JSONSerialization.data(withJSONObject: arr, options: .prettyPrinted),
-            // Notice the extra question mark here!
-            let strJson = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else {
-                //throws MyError.InvalidJSON
-            return nil
-        }
-        
-        return strJson
-    }
 }
