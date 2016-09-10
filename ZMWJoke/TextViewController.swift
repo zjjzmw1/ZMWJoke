@@ -26,6 +26,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.pullToRefresh.pullToRefreshLoadMoreDelegate = self
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 10, 0, 0)
         self.view .addSubview(self.tableView)
         let footerView = UIView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: TABBAR_HEIGHT))
         self.tableView.tableFooterView = footerView
@@ -203,8 +204,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         }
          */
         // 赋值方法  ()----------------------这句会引起卡顿......
-        var textModel : TextModel = TextModel(content: nil, hashId: nil, updatetime: nil, unixtime: nil)
-           textModel = self.arr.object(at: indexPath.row) as! TextModel
+        let textModel = self.arr.object(at: indexPath.row) as! TextModel
         cell?.drawData(textModel: textModel)
         return cell!
     }
