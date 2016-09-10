@@ -45,10 +45,9 @@ class TextCell: UITableViewCell {
     // 赋值方法
     func drawData(textModel: TextModel) {
         contentLabel.text = textModel.content?.replacingOccurrences(of: "&nbsp;", with: "")
+        contentLabel.text = textModel.content
         contentLabel.numberOfLines = 0
         contentLabel .sizeToFit()
-        let size = contentLabel .sizeThatFits(CGSize.init(width: SCREEN_WIDTH - 20, height: 1000.0))
-        contentLabel.frame = CGRect.init(x: 10, y: 10, width: size.width, height: size.height)
     }
     
     func heightForCell(textModel: TextModel) -> CGFloat {
@@ -56,7 +55,6 @@ class TextCell: UITableViewCell {
         contentLabel.numberOfLines = 0
         contentLabel .sizeToFit()
         let size = contentLabel .sizeThatFits(CGSize.init(width: SCREEN_WIDTH - 20, height: 1000.0))
-//        return contentLabel.bottom() + 10
         return size.height + 20
     }
     

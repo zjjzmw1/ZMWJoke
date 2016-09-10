@@ -22,11 +22,13 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         super.viewDidLoad()
         self.navigationItem.title = "文字"
         // 初始化表格
-        self.tableView = MRTableView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TABBAR_HEIGHT - NAVIGATIONBAR_HEIGHT), style: UITableViewStyle.plain)
+        self.tableView = MRTableView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT  - NAVIGATIONBAR_HEIGHT), style: UITableViewStyle.plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.pullToRefresh.pullToRefreshLoadMoreDelegate = self
         self.view .addSubview(self.tableView)
+        let footerView = UIView(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: TABBAR_HEIGHT))
+        self.tableView.tableFooterView = footerView
         
         // Class 注册
         tableView.register(TextCell.self, forCellReuseIdentifier: textCellId)
@@ -178,7 +180,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 100
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -189,8 +191,7 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 自定义cell
         var cell:TextCell?
-        cell = tableView.dequeueReusableCell(withIdentifier: textCellId) as? TextCell
-
+        cell = tableView.dequeueReusableCell(withIdentifier: textCellId, for: indexPath) as? TextCell
         // 收藏按钮
         cell?.indexP = indexPath
         cell?.collectionButton.isHidden = true
@@ -201,10 +202,10 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
             print(btn.currentTitle!)
         }
          */
-        // 赋值方法
-        let textModel : TextModel = self.arr.object(at: indexPath.row) as! TextModel
+        // 赋值方法  ()----------------------这句会引起卡顿......
+        var textModel : TextModel = TextModel(content: nil, hashId: nil, updatetime: nil, unixtime: nil)
+           textModel = self.arr.object(at: indexPath.row) as! TextModel
         cell?.drawData(textModel: textModel)
-        
         return cell!
     }
     
