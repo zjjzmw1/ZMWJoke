@@ -19,6 +19,7 @@ pod 'KDInteractiveNavigationController', '~> 0.1.2'                 # 导航栏
 pod 'StatusBarNotificationCenter', '~> 1.1.3'                       # statusBar导航栏通知UI
 # 下拉刷新、上提刷新
 pod 'MRPullToRefreshLoadMore', '~> 0.0.2'
+pod 'XWSwiftRefresh', '~> 0.1.9'
 
 end 
 
