@@ -31,10 +31,30 @@ class BaseRequestManager: NSObject {
 
     class func baseRequestAction(urlString: String, method: HTTPMethod, parameters:NSDictionary, completion:@escaping (_ isSuccessed:Bool,_ code:Int?,_ jsonValue:AnyObject?) -> ()) {
 
-        Alamofire.request(urlString, withMethod: method, parameters: parameters as? [String : Any], encoding: .url, headers: nil).responseJSON { (response) in
+        
+        do {
+            let urlRequest = try URLRequest.init(url: URL.init(string: urlString)!, method: method, headers: nil)
+            Alamofire.request(urlRequest).responseJSON(completionHandler: { (response) in
+//                print("jsonRequest:\(response.result)")
+//                if let JSON = response.result.value {
+//                    print("JSON: \(JSON)")
+//                }
+                
+                completion(response.result.isSuccess, response.response?.statusCode, response.result.value as AnyObject?)
 
-            completion(response.result.isSuccess, response.response?.statusCode, response.result.value as AnyObject?)
+            })
+            
+        } catch  {
+            
         }
+
+        
+        
+        
+//        Alamofire.request(urlString, method: method, parameters: parameters as? [String : Any], encoding: .url, headers: nil).responseJSON { (response) in
+//
+//            completion(response.result.isSuccess, response.response?.statusCode, response.result.value as AnyObject?)
+//        }
  
         // 这种方式是OK的
         /*

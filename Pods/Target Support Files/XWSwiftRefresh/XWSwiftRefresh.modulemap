@@ -1,6 +1,0 @@
-framework module XWSwiftRefresh {
-  umbrella header "XWSwiftRefresh-umbrella.h"
-
-  export *
-  module * { export * }
-}

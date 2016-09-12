@@ -28,14 +28,44 @@ class PersonViewController: BaseViewController {
         */
         let parameters = [ "foo": "bar","baz": ["a", 1],"qux": ["x": 1,"y": 2,"z": 3]] as [String : Any]
         
-        Alamofire.request("https://httpbin.org/post", withMethod: .post, parameters: parameters, encoding: ParameterEncoding.json, headers: nil).responseJSON { (response) in
-            print("jsonRequest:\(response.result)")
-            
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-            }
-        }
+//        Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: ParameterEncoding.json, headers: nil).responseJSON { (response) in
+//            print("jsonRequest:\(response.result)")
+//            
+//            if let JSON = response.result.value {
+//                print("JSON: \(JSON)")
+//            }
+//        }
+//        Alamofire.request(URL.init(string: ""), method: HTTPMethod.post, parameters: parameters, encoding: ParameterEncoding.json, headers: nil).responseJSON(queue: DispatchQueue.main, options: JSONSerialization.ReadingOptions) { (response) in
+//            print("jsonRequest:\(response.result)")
+//            
+//            if let JSON = response.result.value {
+//                print("JSON: \(JSON)")
+//            }
+//
+//        }
         
+        
+//        Alamofire.request(URL.init(string: ""), method: .get, parameters: parameters, encoding: .JSON, headers: nil).responseJSON(queue: DispatchQueue.main, options: JSONSerialization.ReadingOptions) { (response) in
+//            print("jsonRequest:\(response.result)")
+//            
+//                        if let JSON = response.result.value {
+//                           print("JSON: \(JSON)")
+//                       }
+//        }
+        
+        do {
+            let urlRequest = try URLRequest.init(url: URL.init(string: "https://httpbin.org/post")!, method: .post, headers: nil)
+            Alamofire.request(urlRequest).responseJSON(completionHandler: { (response) in
+                print("jsonRequest:\(response.result)")
+                           if let JSON = response.result.value {
+                            print("JSON: \(JSON)")
+                        }
+            })
+            
+        } catch  {
+            
+        }
+
     }
 
 }
