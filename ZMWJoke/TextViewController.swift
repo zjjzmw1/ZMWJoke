@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import MRPullToRefreshLoadMore
 
+
 let textCellId = "TextCellID"
 
 class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate,MRPullToRefreshLoadMoreDelegate {
@@ -212,11 +213,11 @@ class TextViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
-        var detailVC : UIViewController?
+//        let detailVC : UIViewController?
         //detailVC = SimpleViewController()
-        if detailVC != nil {
-            self.navigationController!.pushViewController(detailVC!, animated: true)
-        }
+//        if detailVC != nil {
+//            self.navigationController!.pushViewController(detailVC!, animated: true)
+//        }
     }
 
 

@@ -14,22 +14,14 @@ class PictureViewController: BaseViewController {
         super.viewDidLoad()
         self.navigationItem.title = "图片"
         
+        let imageV : UIImageView = UIImageView.init(frame: CGRect.init(x: 10, y: 80, width: 100, height: 100))
+        imageV.backgroundColor = UIColor.red
+        self.view.addSubview(imageV)
+        
+        let url : URL = NSURL.init(string: "http://zhangmingwei.qiniudn.com/1-130422091545.jpg") as! URL
+        imageV.kf_setWebURL(url)
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

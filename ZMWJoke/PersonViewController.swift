@@ -53,21 +53,18 @@ class PersonViewController: BaseViewController {
 //                       }
 //        }
         
+        
         do {
-            let urlRequest = try URLRequest.init(url: URL.init(string: "https://httpbin.org/post")!, method: .post, headers: nil)
+            let urlRequest = try! URLRequest.init(url: "https://httpbin.org/post" as URLConvertible, method: HTTPMethod.post, headers: nil)
             Alamofire.request(urlRequest).responseJSON(completionHandler: { (response) in
                 print("jsonRequest:\(response.result)")
-                           if let JSON = response.result.value {
-                            print("JSON: \(JSON)")
-                        }
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
             })
-            
-        } catch  {
-            
         }
-
     }
-
+    
 }
 
 

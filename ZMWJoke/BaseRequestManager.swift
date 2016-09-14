@@ -30,39 +30,15 @@ class BaseRequestManager: NSObject {
     }
 
     class func baseRequestAction(urlString: String, method: HTTPMethod, parameters:NSDictionary, completion:@escaping (_ isSuccessed:Bool,_ code:Int?,_ jsonValue:AnyObject?) -> ()) {
-
         
+//        let urlRequest = URLRequest.init(urlString: urlString as URLConvertible, method: HTTPMethod.post, headers: nil)
         do {
-            let urlRequest = try URLRequest.init(url: URL.init(string: urlString)!, method: method, headers: nil)
+            let urlRequest = try! URLRequest.init(url: urlString as URLConvertible, method: HTTPMethod.post, headers: nil)
             Alamofire.request(urlRequest).responseJSON(completionHandler: { (response) in
-//                print("jsonRequest:\(response.result)")
-//                if let JSON = response.result.value {
-//                    print("JSON: \(JSON)")
-//                }
-                
                 completion(response.result.isSuccess, response.response?.statusCode, response.result.value as AnyObject?)
-
+                
             })
-            
-        } catch  {
-            
         }
-
-        
-        
-        
-//        Alamofire.request(urlString, method: method, parameters: parameters as? [String : Any], encoding: .url, headers: nil).responseJSON { (response) in
-//
-//            completion(response.result.isSuccess, response.response?.statusCode, response.result.value as AnyObject?)
-//        }
- 
-        // 这种方式是OK的
-        /*
-         Alamofire.request("http://japi.juhe.cn/joke/content/text.from?page=1&pagesize=20&key=b13defd332c76c3abf2895f7796e2a45", withMethod: .get).responseJSON { (response) in
-         print("====\(response)")
-         }
-         */
-
     }
     
 }
