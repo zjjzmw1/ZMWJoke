@@ -26,6 +26,8 @@ pod 'MRPullToRefreshLoadMore', '~> 0.0.2'
 #pod 'Kingfisher', '~> 3.0'
 
 #pod 'XWSwiftRefresh', '~> 0.1.9'   // 不支持3.0(不会修改)
+# 很好用的json转model库，很合理
+pod 'HandyJSON', '~> 1.3.0'
 
 end 
 
